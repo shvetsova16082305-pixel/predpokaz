@@ -1130,6 +1130,16 @@ body{background:var(--deepgreen)}
 .regionPassportCanvas.regionPassportCanvas--image iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block;z-index:1}
 .regionPassportCanvas.regionPassportCanvas--image .mapPin{z-index:10}
 .regionPassportCanvas.regionPassportCanvas--image:before,.regionPassportCanvas.regionPassportCanvas--image:after{display:none!important}
+/* Красная Поляна — скрыто */
+#object-polyanapik,#object-polyana540,#object-polyana960{display:none!important}
+[data-int-region="polyana"]{display:none!important}
+/* Блок "не инвестируй" — аккордеон */
+.biCollapse{display:none;margin-top:0}
+.biCollapse.open{display:block}
+.biToggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:rgba(255,255,255,.055);border:1px solid rgba(200,146,42,.28);border-radius:18px;padding:16px 22px;color:#f3d28b;font-size:16px;font-weight:700;cursor:pointer;margin-top:18px;gap:12px;text-align:left;font-family:inherit}
+.biToggle:hover{background:rgba(200,146,42,.12)}
+.biToggleArrow{font-size:20px;transition:transform .25s;flex-shrink:0}
+.biToggle.open .biToggleArrow{transform:rotate(180deg)}
 </style>
 <style>
 /* --- Sialia layout update --- */
@@ -1600,7 +1610,7 @@ h1 span,h2 span,.blockTitle span{color:var(--gold-deep);text-shadow:none}
     <h2 class="blockTitle">Регионы <span>инвестирования</span></h2>
     <p class="intelligenceIntro">Инвестиционный паспорт региона: карта объектов, ключевые цифры, драйверы спроса и быстрые ссылки на карточки объектов.</p>
     <div class="intelligenceTabs" id="intelligenceTabs">
-      <button class="intelligenceTab active" data-int-region="sochi" type="button" onclick="if(window.__utpApply){document.querySelectorAll('.intelligenceTab').forEach(function(x){x.classList.remove('active')});this.classList.add('active');window.__utpApply('sochi');return false}">Сочи + Красная Поляна</button>
+      <button class="intelligenceTab active" data-int-region="sochi" type="button" onclick="if(window.__utpApply){document.querySelectorAll('.intelligenceTab').forEach(function(x){x.classList.remove('active')});this.classList.add('active');window.__utpApply('sochi');return false}">Сочи</button>
       <button class="intelligenceTab" data-int-region="crimea" type="button" onclick="if(window.__utpApply){document.querySelectorAll('.intelligenceTab').forEach(function(x){x.classList.remove('active')});this.classList.add('active');window.__utpApply('crimea');return false}">Крым</button>
       <button class="intelligenceTab" data-int-region="anapa" type="button" onclick="if(window.__utpApply){document.querySelectorAll('.intelligenceTab').forEach(function(x){x.classList.remove('active')});this.classList.add('active');window.__utpApply('anapa');return false}">Анапа</button>
       <button class="intelligenceTab" data-int-region="georgievskaya" type="button" onclick="if(window.__utpApply){document.querySelectorAll('.intelligenceTab').forEach(function(x){x.classList.remove('active')});this.classList.add('active');window.__utpApply('georgievskaya');return false}">Георгиевская долина</button>
@@ -1694,7 +1704,10 @@ h1 span,h2 span,.blockTitle span{color:var(--gold-deep);text-shadow:none}
 <div class="eyebrow">прежде чем инвестировать</div>
 <h2 class="blockTitle">Не инвестируй пока не узнаешь <span>ЭТО</span></h2>
 <p class="blockSub">Прежде чем выбирать регион и объект — важно понимать саму специфику инвестирования в недвижимость.</p>
-
+<button class="biToggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+  <span>Раскрыть подробнее</span><span class="biToggleArrow">▼</span>
+</button>
+<div class="biCollapse">
 <div class="grid2">
 <div class="panel">
 <h3>С чем сталкивается инвестор сейчас</h3>
@@ -1802,6 +1815,7 @@ h1 span,h2 span,.blockTitle span{color:var(--gold-deep);text-shadow:none}
 </div>
 </div>
 <p style="margin-top:16px;font-size:12px;color:#3a4434">Материал носит информационный характер и не является индивидуальной инвестиционной рекомендацией.</p>
+</div><!-- /biCollapse -->
 </div></section>
 <section class="" id="strategies"><div class="wrap"><h2 class="blockTitle">3 инвестиционные <span>стратегии</span></h2><p class="blockSub">Выберите стратегию, которая соответствует вашим целям, и перейдите к подбору объекта.</p><div class="steps"><div class="step"><div class="stepNum">01</div><h3>Пассивный доход</h3><p>Для тех, кто хочет, чтобы объект начал приносить деньги максимально быстро. Логика: готовый или почти готовый курортный актив, передача в управление УК, минимальная операционная нагрузка на инвестора.</p><p>Преимущество: понятная модель выплат и меньше ожидания.</p><a class="btn secondary" href="#objects">Выбрать бюджет</a></div><div class="step"><div class="stepNum">02</div><h3>Рост капитала</h3><p>Для тех, кто готов ждать 2–3 года ради роста стоимости актива. Логика: вход на этапе строительства или раннего развития локации, рост цены м² по мере готовности проекта.</p><p>Преимущество: потенциал капитализации выше, чем у готового объекта.</p><a class="btn secondary" href="#objects">Выбрать бюджет</a></div><div class="step"><div class="stepNum">03</div><h3>Капитализация + доход</h3><p>Для тех, кто хочет совместить рост стоимости и последующий арендный поток на горизонте 5+ лет. Логика: объект растёт в цене до запуска, а после запуска начинает работать как доходный актив.</p><p>Преимущество: стратегия закрывает и рост капитала, и будущий cash flow.</p><a class="btn secondary" href="#objects">Выбрать бюджет</a></div></div></div></section>
 <section id="objects"><div class="wrap"><h2 class="blockTitle">Подбор: <span>стратегия → бюджет → объект</span></h2><p class="blockSub">Выберите стратегию, затем бюджет — и перейдите к конкретному объекту.</p><div class="objects">
