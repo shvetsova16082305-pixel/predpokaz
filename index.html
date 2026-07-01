@@ -3,6 +3,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"/>
+<script>history.scrollRestoration='manual';window.addEventListener('load',function(){window.scrollTo(0,0);});</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Инвестиции в курортную недвижимость</title>
 <style>
@@ -6740,7 +6741,7 @@ document.addEventListener('click', function(e){
     var tabs=document.getElementById('intelligenceTabs'); if(!tabs)return;
     var poly=tabs.querySelector('[data-int-region="polyana"]');
     if(!poly){poly=document.createElement('button');poly.type='button';poly.className='intelligenceTab';poly.dataset.intRegion='polyana';poly.textContent='Красная Поляна';var sochi=tabs.querySelector('[data-int-region="sochi"]');if(sochi)sochi.insertAdjacentElement('afterend',poly);else tabs.prepend(poly)}
-    poly.style.display='inline-flex';
+    poly.style.display='none';
     poly.addEventListener('click',function(e){e.preventDefault();e.stopImmediatePropagation();activate('polyana',false)},true);
     tabs.querySelectorAll('.intelligenceTab').forEach(function(tab){if(tab.dataset.intRegion!=='polyana'){tab.addEventListener('click',function(e){setTimeout(function(){if(tab.dataset.intRegion!=='polyana')activate(tab.dataset.intRegion,false)},20)},true)}});
     window.goToRegionPassport=function(region){activate(region,false);var t=document.getElementById('region-intelligence');if(t)t.scrollIntoView({behavior:'smooth',block:'start'});};
@@ -6767,7 +6768,7 @@ document.addEventListener('click', function(e){
 #intelligenceContent .polyanaPassport .polyDrivers{min-height:190px!important}
 #intelligenceContent .polyanaPassport .polyInvestor{min-height:190px!important}
 #intelligenceContent .polyanaPassport .polyWhy{min-height:0!important}
-#intelligenceTabs .intelligenceTab[data-int-region="polyana"]{display:inline-flex!important;opacity:1!important;visibility:visible!important}
+#intelligenceTabs .intelligenceTab[data-int-region="polyana"]{display:none!important;opacity:0!important;visibility:hidden!important}
 @media(max-width:1100px){
  #intelligenceContent .passportV2 .pvMap .regionPassportCanvas{height:260px!important;min-height:260px!important}
  #intelligenceContent .polyanaPassport .polyMap .polyMapVisual{height:245px!important}
