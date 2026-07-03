@@ -1579,29 +1579,6 @@ h1 span,h2 span,.blockTitle span{color:var(--gold-deep);text-shadow:none}
 </section>
 
 
-<section class="hero wrap" id="pre">
-<div>
-<div class="eyebrow">инвестиции в курортную недвижимость</div>
-<h1>Выберите стратегию<br/><span>бюджет и объект.</span></h1>
-<p class="lead">Выберите инвестиционную стратегию, подберите бюджет и найдите подходящий объект. Логика простая: стратегия → бюджет → объект.</p>
-<div class="ctas"><a class="btn" href="#regions">Открыть регионы →</a><a class="btn secondary" href="#strategies">Перейти к стратегиям</a></div>
-</div>
-<div class="heroMapPanel">
-<img alt="Карта регионов инвестирования: Сочи, Крым, Анапа, Туапсе, Алтай, Шерегеш" src="https://rizalta-invest.vercel.app/images/img_map_new.png"/>
-<div aria-live="polite" class="regionFloatingPopup" id="regionFloatingPopup">
-<button aria-label="Закрыть окно" class="regionPopupClose" onclick="closeRegionPopup()" type="button">×</button>
-<div class="regionPopupKicker" id="popupKicker">Регион инвестирования</div>
-<div class="popupRegionPhoto" id="popupRegionPhotoWrap"><img alt="" id="popupRegionPhoto" src=""/></div>
-<h3 id="popupTitle">Сочи</h3>
-<p id="popupUtp"></p>
-<p id="popupBenefits"></p>
-<div class="popupObjects">
-<div class="popupObjectsTitle">Объекты региона</div>
-<div id="popupObjectsList"></div>
-</div>
-</div>
-</div>
-</section>
 
 
 <section class="regionIntelligence" id="region-intelligence">
@@ -1771,6 +1748,31 @@ h1 span,h2 span,.blockTitle span{color:var(--gold-deep);text-shadow:none}
 <p style="margin-top:16px;font-size:12px;color:#3a4434">Материал носит информационный характер и не является индивидуальной инвестиционной рекомендацией.</p>
 </div><!-- /biCollapse -->
 </div></section>
+
+<section class="hero wrap" id="pre" style="min-height:auto;padding:48px 32px">
+<div>
+<div class="eyebrow">инвестиции в курортную недвижимость</div>
+<h1>Выберите стратегию<br/><span>бюджет и объект.</span></h1>
+<p class="lead">Выберите инвестиционную стратегию, подберите бюджет и найдите подходящий объект. Логика простая: стратегия → бюджет → объект.</p>
+<div class="ctas"><a class="btn" href="#regions">Открыть регионы →</a><a class="btn secondary" href="#strategies">Перейти к стратегиям</a></div>
+</div>
+<div class="heroMapPanel">
+<img alt="Карта регионов инвестирования: Сочи, Крым, Анапа, Туапсе, Алтай, Шерегеш" src="https://rizalta-invest.vercel.app/images/img_map_new.png"/>
+<div aria-live="polite" class="regionFloatingPopup" id="regionFloatingPopup">
+<button aria-label="Закрыть окно" class="regionPopupClose" onclick="closeRegionPopup()" type="button">×</button>
+<div class="regionPopupKicker" id="popupKicker">Регион инвестирования</div>
+<div class="popupRegionPhoto" id="popupRegionPhotoWrap"><img alt="" id="popupRegionPhoto" src=""/></div>
+<h3 id="popupTitle">Сочи</h3>
+<p id="popupUtp"></p>
+<p id="popupBenefits"></p>
+<div class="popupObjects">
+<div class="popupObjectsTitle">Объекты региона</div>
+<div id="popupObjectsList"></div>
+</div>
+</div>
+</div>
+</section>
+
 <section class="" id="strategies"><div class="wrap"><h2 class="blockTitle">3 инвестиционные <span>стратегии</span></h2><p class="blockSub">Выберите стратегию, которая соответствует вашим целям, и перейдите к подбору объекта.</p><div class="steps"><div class="step"><div class="stepNum">01</div><h3>Пассивный доход</h3><p>Для тех, кто хочет, чтобы объект начал приносить деньги максимально быстро. Логика: готовый или почти готовый курортный актив, передача в управление УК, минимальная операционная нагрузка на инвестора.</p><p>Преимущество: понятная модель выплат и меньше ожидания.</p><a class="btn secondary" href="#objects">Выбрать бюджет</a></div><div class="step"><div class="stepNum">02</div><h3>Рост капитала</h3><p>Для тех, кто готов ждать 2–3 года ради роста стоимости актива. Логика: вход на этапе строительства или раннего развития локации, рост цены м² по мере готовности проекта.</p><p>Преимущество: потенциал капитализации выше, чем у готового объекта.</p><a class="btn secondary" href="#objects">Выбрать бюджет</a></div><div class="step"><div class="stepNum">03</div><h3>Капитализация + доход</h3><p>Для тех, кто хочет совместить рост стоимости и последующий арендный поток на горизонте 5+ лет. Логика: объект растёт в цене до запуска, а после запуска начинает работать как доходный актив.</p><p>Преимущество: стратегия закрывает и рост капитала, и будущий cash flow.</p><a class="btn secondary" href="#objects">Выбрать бюджет</a></div></div></div></section>
 <section id="objects"><div class="wrap"><h2 class="blockTitle">Подбор: <span>стратегия → бюджет → объект</span></h2><p class="blockSub">Выберите стратегию, затем бюджет — и перейдите к конкретному объекту.</p><div class="objects">
 <article class="obj" id="passive-income"><div class="objBody"><h3>Пассивный доход</h3><div class="city">быстрый арендный поток через УК</div><div class="regionStrategyTabs" data-strategy="passive-income"></div><div class="strategyBudgetContent" id="strategy-passive-income"></div></div></article>
