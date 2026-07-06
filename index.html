@@ -6066,6 +6066,244 @@ radial-gradient(circle at 15% 20%,rgba(244,201,93,.18),transparent 18%),radial-g
   </div>
 </div>
 </section>
+
+<!-- INVESTMENT COMPARISON FEATURE -->
+<style>
+#compareBtn{
+  position:fixed;bottom:28px;right:28px;z-index:9000;
+  background:#2A4149;color:#D2DFE7;
+  border:1px solid rgba(210,223,231,.45);
+  border-radius:50px;padding:13px 22px;
+  font:700 13px/1 Inter,sans-serif;letter-spacing:.02em;
+  cursor:pointer;box-shadow:0 8px 32px rgba(26,39,32,.35);
+  display:flex;align-items:center;gap:8px;
+  transition:background .2s,box-shadow .2s
+}
+#compareBtn:hover{background:#1a2720;box-shadow:0 12px 40px rgba(26,39,32,.5)}
+#compareBtn svg{flex-shrink:0}
+
+#compareOverlay{
+  position:fixed;inset:0;z-index:9001;
+  background:rgba(26,39,32,.72);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  opacity:0;pointer-events:none;transition:opacity .28s
+}
+#compareOverlay.open{opacity:1;pointer-events:all}
+
+#compareDrawer{
+  position:fixed;bottom:0;left:0;right:0;z-index:9002;
+  max-height:82vh;
+  background:#FFFEFA;
+  border-radius:20px 20px 0 0;
+  box-shadow:0 -12px 60px rgba(26,39,32,.28);
+  display:flex;flex-direction:column;
+  transform:translateY(100%);
+  transition:transform .35s cubic-bezier(.4,0,.2,1)
+}
+#compareDrawer.open{transform:translateY(0)}
+
+#compareHead{
+  padding:20px 24px 16px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid rgba(42,65,73,.1);
+  flex-shrink:0
+}
+#compareHead h3{
+  font:700 18px/1 'Cormorant Garamond',Georgia,serif;
+  color:#363636;margin:0
+}
+#compareHeadRight{display:flex;align-items:center;gap:12px}
+#compareSortBtn{
+  background:rgba(42,65,73,.08);border:none;border-radius:20px;
+  padding:6px 14px;font:600 12px/1 Inter,sans-serif;color:#2A4149;
+  cursor:pointer;transition:background .15s
+}
+#compareSortBtn:hover{background:rgba(42,65,73,.15)}
+#compareCloseBtn{
+  background:none;border:none;font-size:22px;cursor:pointer;
+  color:rgba(54,54,54,.5);line-height:1;padding:4px;
+  transition:color .15s
+}
+#compareCloseBtn:hover{color:#363636}
+
+#compareSubhead{
+  padding:8px 24px 10px;
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+  border-bottom:1px solid rgba(42,65,73,.07);
+  flex-shrink:0
+}
+.compareNote{
+  font:400 12px/1.4 Inter,sans-serif;
+  color:rgba(54,54,54,.5);
+}
+
+#compareScroll{overflow:auto;flex:1;-webkit-overflow-scrolling:touch}
+
+#compareTable{
+  border-collapse:collapse;width:100%;
+  min-width:860px;font-size:12.5px;
+}
+#compareTable thead th{
+  background:#2A4149;color:#D2DFE7;
+  padding:11px 8px;text-align:center;
+  font:600 11px/1.2 Inter,sans-serif;letter-spacing:.03em;
+  white-space:nowrap;position:sticky;top:0;z-index:3;
+  border-right:1px solid rgba(210,223,231,.12)
+}
+#compareTable thead th:first-child{
+  text-align:left;position:sticky;left:0;z-index:4;
+  padding-left:20px;min-width:160px;
+  border-right:1px solid rgba(210,223,231,.2)
+}
+#compareTable thead th:last-child{
+  background:#2B4B36;font-size:12px;
+}
+#compareTable tbody td{
+  padding:9px 8px;text-align:center;
+  color:#363636;border-bottom:1px solid rgba(42,65,73,.07);
+  border-right:1px solid rgba(42,65,73,.05)
+}
+#compareTable tbody td:first-child{
+  text-align:left;
+  position:sticky;left:0;
+  background:#FFFEFA;z-index:1;
+  padding-left:20px;
+  border-right:1px solid rgba(42,65,73,.1);
+  font-weight:600;color:#2A4149
+}
+#compareTable tbody tr:hover td{background:rgba(210,223,231,.12)}
+#compareTable tbody tr:hover td:first-child{background:rgba(210,223,231,.15)}
+#compareTable tbody tr:nth-child(1) td:first-child::before{content:'🥇 ';font-size:14px}
+#compareTable tbody tr:nth-child(2) td:first-child::before{content:'🥈 ';font-size:14px}
+#compareTable tbody tr:nth-child(3) td:first-child::before{content:'🥉 ';font-size:14px}
+
+.cDot{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;border-radius:50%;
+  font:700 12px/1 Inter,sans-serif
+}
+.cDot.s9,.cDot.s10{background:#2B4B36;color:#D2DFE7}
+.cDot.s8{background:#2A4149;color:#D2DFE7}
+.cDot.s7{background:rgba(42,65,73,.25);color:#2A4149}
+.cDot.s6,.cDot.s5,.cDot.s4,.cDot.s3,.cDot.s2,.cDot.s1{background:rgba(42,65,73,.1);color:rgba(54,54,54,.6)}
+
+.cTotal{
+  display:inline-block;
+  font:900 15px/1 Inter,sans-serif;color:#2B4B36;
+  background:rgba(43,75,54,.12);
+  border-radius:8px;padding:4px 9px
+}
+.cRank{
+  display:inline-block;width:16px;
+  font:400 11px/1 Inter,sans-serif;
+  color:rgba(54,54,54,.35);margin-right:4px
+}
+.cRegion{
+  display:block;font:400 10px/1 Inter,sans-serif;
+  color:rgba(54,54,54,.45);margin-top:2px
+}
+</style>
+
+<button id="compareBtn" onclick="window.openCompare()">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+    <rect x="1" y="3" width="4" height="10" rx="1" fill="#D2DFE7" opacity=".7"/>
+    <rect x="6" y="1" width="4" height="12" rx="1" fill="#D2DFE7"/>
+    <rect x="11" y="5" width="4" height="8" rx="1" fill="#D2DFE7" opacity=".7"/>
+  </svg>
+  Сравнить объекты
+</button>
+
+<div id="compareOverlay" onclick="window.closeCompare()"></div>
+<div id="compareDrawer">
+  <div id="compareHead">
+    <h3>Инвестиционная привлекательность — все объекты</h3>
+    <div id="compareHeadRight">
+      <button id="compareSortBtn" onclick="window.toggleCompareSort()">↓ по баллам</button>
+      <button id="compareCloseBtn" onclick="window.closeCompare()">✕</button>
+    </div>
+  </div>
+  <div id="compareSubhead">
+    <span class="compareNote">10 критериев · оценка 1–10 · максимум 100 баллов · предварительные оценки</span>
+  </div>
+  <div id="compareScroll">
+    <table id="compareTable"><tbody></tbody></table>
+  </div>
+</div>
+
+<script>
+(function(){
+  var CRITERIA = ['Локация','Инфраструктура','УК','Доходность','Юр. чистота','Качество','Застройщик','Ликвидность','Фин. условия','Концепция'];
+
+  // Оценки: [Локация, Инфраструктура, УК, Доходность, Юр.чистота, Качество, Застройщик, Ликвидность, Фин.условия, Концепция]
+  var OBJECTS = [
+    {id:'object-mone',       name:'Моне',              region:'Сочи',           s:[8,8,7,8,9,8,7,8,8,8]},
+    {id:'object-sialia',     name:'Сиалия (Cosmos)',   region:'Сочи',           s:[9,9,9,8,10,9,9,8,8,9]},
+    {id:'object-polyanapik', name:'Поляна Пик',        region:'Красная Поляна', s:[9,8,8,9,9,9,8,8,8,9]},
+    {id:'object-polyana540', name:'Поляна 540',        region:'Красная Поляна', s:[8,7,8,8,9,8,7,7,7,8]},
+    {id:'object-polyana960', name:'Поляна 960',        region:'Красная Поляна', s:[9,7,7,9,8,7,7,8,7,8]},
+    {id:'object-rizalta',    name:'Rizalta',           region:'Белокуриха',     s:[7,6,7,8,8,8,7,6,7,8]},
+    {id:'object-altyn',      name:'Алтын Шор',         region:'Шерегеш',        s:[8,6,7,9,8,8,7,7,8,9]},
+    {id:'object-moynako',    name:'Мойнако Resort',    region:'Сочи',           s:[9,8,8,8,9,8,8,8,8,8]},
+    {id:'object-atlas',      name:'Atlas Apart Hotel', region:'Крым',           s:[8,7,7,8,7,7,7,7,7,8]},
+    {id:'object-darsan',     name:'Дарсан / Cosmos Y.','region':'Крым',         s:[9,8,9,8,9,9,9,8,8,8]},
+    {id:'object-riverta',    name:'Cosmos Riverta',    region:'Черноморье',     s:[7,7,8,8,9,8,9,7,8,7]},
+    {id:'object-lokvera',    name:'ЛОК Вера',          region:'Сочи',           s:[7,7,7,7,8,7,7,7,7,7]},
+    {id:'object-nikolay1',   name:'Николай 1',         region:'Крым',           s:[8,7,8,8,9,8,8,7,8,8]},
+    {id:'object-belyenochi', name:'Белые Ночи',        region:'Сочи',           s:[8,8,7,8,8,8,7,8,7,8]},
+    {id:'object-volna',      name:'Волна',             region:'Сочи',           s:[9,8,8,9,9,9,8,8,8,9]},
+    {id:'object-evopart',    name:'Evopart Sochi',     region:'Сочи',           s:[9,9,8,9,9,8,8,8,8,9]},
+    {id:'object-agoy',       name:'Alean Select Agoy', region:'Черноморье',     s:[7,7,8,8,9,8,9,7,8,7]},
+    {id:'object-palazzo',    name:'Palazzo De Agoy',   region:'Черноморье',     s:[7,7,7,8,8,8,7,7,7,8]},
+  ];
+
+  var sortByScore = true;
+
+  function total(s){return s.reduce(function(a,b){return a+b},0);}
+
+  function buildTable(){
+    var data = OBJECTS.slice();
+    if(sortByScore) data.sort(function(a,b){return total(b.s)-total(a.s);});
+
+    var table = document.getElementById('compareTable');
+    var html = '<thead><tr>';
+    html += '<th>Объект</th>';
+    CRITERIA.forEach(function(c){html+='<th>'+c+'</th>';});
+    html += '<th>Итог / 100</th></tr></thead><tbody>';
+
+    data.forEach(function(obj,idx){
+      var tot = total(obj.s);
+      html += '<tr>';
+      html += '<td><span class="cRank">'+(idx+1)+'.</span>'+obj.name+'<span class="cRegion">'+obj.region+'</span></td>';
+      obj.s.forEach(function(v){
+        html += '<td><span class="cDot s'+v+'">'+v+'</span></td>';
+      });
+      html += '<td><span class="cTotal">'+tot+'</span></td>';
+      html += '</tr>';
+    });
+    html += '</tbody>';
+    table.innerHTML = html;
+  }
+
+  window.openCompare = function(){
+    buildTable();
+    document.getElementById('compareOverlay').classList.add('open');
+    document.getElementById('compareDrawer').classList.add('open');
+    document.body.style.overflow='hidden';
+  };
+  window.closeCompare = function(){
+    document.getElementById('compareOverlay').classList.remove('open');
+    document.getElementById('compareDrawer').classList.remove('open');
+    document.body.style.overflow='';
+  };
+  window.toggleCompareSort = function(){
+    sortByScore = !sortByScore;
+    document.getElementById('compareSortBtn').textContent = sortByScore ? '↓ по баллам' : 'А–Я по имени';
+    buildTable();
+  };
+})();
+</script>
+<!-- END INVESTMENT COMPARISON -->
+
 </body>
 </html><style id="anapa-size-and-utp-restore">
 /* Анапа: компактная карточка на карте в масштабе остальных регионов. */
