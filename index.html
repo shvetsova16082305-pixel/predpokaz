@@ -1126,7 +1126,7 @@ body{background:var(--deepgreen)}
 
 /* Region intelligence — analytics layer */
 .regionIntelligence{padding:46px 0 16px}
-.intelligenceIntro{max-width:920px;color:var(--muted);font-size:18px;line-height:1.55;margin:0 0 22px}
+.intelligenceIntro{max-width:920px;color:#3a4a38;font-size:18px;line-height:1.55;margin:0 0 22px}
 .intelligenceTabs{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 18px}
 .intelligenceTab{appearance:none;border:1px solid rgba(215,170,66,.36);background:rgba(255,255,255,.035);color:#f9f2e2;border-radius:999px;padding:11px 16px;font:700 14px/1.1 inherit;cursor:pointer;transition:.18s ease}
 .intelligenceTab:hover,.intelligenceTab.active{background:linear-gradient(135deg,rgba(188,145,39,.34),rgba(25,85,57,.55));border-color:rgba(244,201,101,.9);box-shadow:0 10px 22px rgba(0,0,0,.16)}
@@ -1150,8 +1150,8 @@ body{background:var(--deepgreen)}
 /* Блок "не инвестируй" — аккордеон */
 .biCollapse{display:none;margin-top:0}
 .biCollapse.open{display:block}
-.biToggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:rgba(255,255,255,.055);border:1px solid rgba(200,146,42,.28);border-radius:18px;padding:16px 22px;color:#f3d28b;font-size:16px;font-weight:700;cursor:pointer;margin-top:18px;gap:12px;text-align:left;font-family:inherit}
-.biToggle:hover{background:rgba(200,146,42,.12)}
+.biToggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:#134B42;border:1px solid rgba(200,146,42,.45);border-radius:18px;padding:16px 22px;color:#F8D9A0;font-size:16px;font-weight:700;cursor:pointer;margin-top:18px;gap:12px;text-align:left;font-family:inherit}
+.biToggle:hover{background:#1c5c51}
 .biToggleArrow{font-size:20px;transition:transform .25s;flex-shrink:0}
 .biToggle.open .biToggleArrow{transform:rotate(180deg)}
 </style>
@@ -1201,7 +1201,7 @@ body{background:#EFEAD9;color:#1c2419}
 .navlinks a,.pillbtn{background:#1c5c51;border-color:rgba(238,168,59,.22);color:#eeeadc}
 .navlinks a:hover,.pillbtn:hover{background:#EEA83B;border-color:#EEA83B;color:#1c2419;box-shadow:none}
 .eyebrow{border-color:rgba(238,168,59,.5);background:#134B42;color:#F8D9A0;box-shadow:none}
-h1 span,h2 span,.blockTitle span{color:var(--gold-deep);text-shadow:none}
+h1 span,h2 span,.blockTitle span{color:var(--gold);text-shadow:none}
 .stepNum,.fact b,.kpi b{color:var(--gold-bright);text-shadow:none}
 .btn{background:#EEA83B;color:#1c2419;box-shadow:none}
 .btn:hover{background:#F3BD5F}
@@ -1574,7 +1574,7 @@ h1 span,h2 span,.blockTitle span{color:var(--gold-deep);text-shadow:none}
 <body>
 <div class="page">
 <nav class="nav">
-<div class="logo"><img src="https://rizalta-invest.vercel.app/images/logo.webp" alt="Oazis Estate" style="height:44px;width:auto;display:block;filter:brightness(0) saturate(100%)"/></div>
+<div class="logo"><img src="https://rizalta-invest.vercel.app/images/logo.webp" alt="Oazis Estate" style="height:44px;width:auto;display:block;filter:brightness(0) invert(1)"/></div>
 <div class="navlinks"><a href="#meeting-roadmap">Как выбрать</a><a href="#strategies">Стратегии</a><a href="#objects">Вилка цен</a><a href="#pre">Карта</a><a href="#region-intelligence">Паспорт</a><a href="#regions">Объекты</a><a href="#calc-slide" style="background:rgba(200,146,42,.18);border-color:rgba(200,146,42,.5);color:#f3d28b">Калькулятор</a></div>
 </nav>
 <section class="meetingRoadmap" id="meeting-roadmap">
@@ -3013,7 +3013,7 @@ h1 span,h2 span,.blockTitle span{color:var(--gold-deep);text-shadow:none}
 
 
 <footer class="footer" style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:40px 24px">
-<img src="https://rizalta-invest.vercel.app/images/logo.webp" alt="Oazis Estate" style="height:64px;width:auto;filter:brightness(0) saturate(100%) invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1);opacity:.85"/>
+<img src="https://rizalta-invest.vercel.app/images/logo.webp" alt="Oazis Estate" style="height:64px;width:auto;filter:brightness(0) saturate(100%);opacity:.85"/>
 <span style="font-size:13px;opacity:.6">Инвестиции в курортную недвижимость · вся информация раскрывается внутри страницы</span>
 </footer>
 </div>
@@ -3597,7 +3597,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('a[href^="#object-"]').forEach(function(a){a.addEventListener('click',function(e){var id=(a.getAttribute('href')||'').slice(1);var el=document.getElementById(id);if(el&&el.classList.contains('detail')){e.preventDefault();openDetail(id);}});});});</script>
 <style>
-.regionStrategyTabs{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 14px}.regionChip{border:1px solid rgba(239,205,115,.56);background:linear-gradient(145deg,rgba(92,98,45,.86),rgba(46,56,27,.9));color:#fff;padding:10px 13px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer;box-shadow:0 0 16px rgba(223,181,60,.16)}.regionChip.active{background:linear-gradient(145deg,#dcb44b,#806a25);color:#1d2510;box-shadow:0 0 24px rgba(244,208,97,.36)}.budgetGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.budgetCard{border:1px solid rgba(239,205,115,.28);border-radius:18px;padding:16px;background:rgba(18,29,11,.46)}.budgetCard b{display:block;color:#f1d073;font-size:18px;margin-bottom:7px}.budgetCard p{min-height:42px;color:#e7e7dc;line-height:1.45;margin:0 0 12px}.budgetCard .objectBtn{display:block;width:100%;margin:7px 0;text-align:left}.regionDrop .dropObjects{display:flex;flex-direction:column;gap:8px}.regionDrop .dropObjects .objectBtn{margin:0}.strategyHint{color:#d8d8c9;line-height:1.55;margin:6px 0 12px}@media(max-width:900px){.budgetGrid{grid-template-columns:1fr}}
+.regionStrategyTabs{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 14px}.regionChip{border:1px solid rgba(200,146,42,.45);background:#134B42;color:#F8D9A0;padding:10px 13px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer;box-shadow:none;transition:background .18s,box-shadow .18s}.regionChip:hover{background:#1c5c51;box-shadow:0 0 18px rgba(200,146,42,.35)}.regionChip.active{background:#EEA83B;color:#1c2419;border-color:#EEA83B;box-shadow:none}.budgetGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.budgetCard{border:1px solid rgba(239,205,115,.28);border-radius:18px;padding:16px;background:rgba(18,29,11,.46)}.budgetCard b{display:block;color:#f1d073;font-size:18px;margin-bottom:7px}.budgetCard p{min-height:42px;color:#e7e7dc;line-height:1.45;margin:0 0 12px}.budgetCard .objectBtn{display:block;width:100%;margin:7px 0;text-align:left}.regionDrop .dropObjects{display:flex;flex-direction:column;gap:8px}.regionDrop .dropObjects .objectBtn{margin:0}.strategyHint{color:#d8d8c9;line-height:1.55;margin:6px 0 12px}@media(max-width:900px){.budgetGrid{grid-template-columns:1fr}}
 </style>
 <script>
 (function(){
@@ -6017,24 +6017,24 @@ radial-gradient(circle at 15% 20%,rgba(244,201,93,.18),transparent 18%),radial-g
 
 <section id="calc-slide" style="padding:72px 32px;background:#f4f0e8;border-top:1px solid #e0d8c8">
 <div class="wrap" style="max-width:1160px;margin:0 auto;text-align:center">
-  <div class="eyebrow" style="display:inline-flex;margin-bottom:20px;border-color:rgba(200,146,42,.4);background:rgba(200,146,42,.1)">инвестиционный расчёт</div>
-  <h2 class="blockTitle" style="font-size:clamp(36px,5vw,72px);margin-bottom:16px;color:#1a1a1a">Калькулятор <span>доходности</span></h2>
-  <p style="color:#555;font-size:18px;line-height:1.7;max-width:560px;margin:0 auto 36px">Рассчитайте доходность, срок окупаемости и итоговый результат по трём сценариям — консервативному, базовому и оптимистичному.</p>
-  <a href="calculator.html" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#C8922A;color:#fff;border-radius:16px;padding:18px 32px;font-weight:700;font-size:17px;text-decoration:none;box-shadow:0 14px 34px rgba(200,146,42,.3);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
+  <div class="eyebrow" style="display:inline-flex;margin-bottom:20px">инвестиционный расчёт</div>
+  <h2 class="blockTitle" style="font-size:clamp(36px,5vw,72px);margin-bottom:16px;color:#1c2419">Калькулятор <span>доходности</span></h2>
+  <p style="color:#3a4a38;font-size:18px;line-height:1.7;max-width:560px;margin:0 auto 36px">Рассчитайте доходность, срок окупаемости и итоговый результат по трём сценариям — консервативному, базовому и оптимистичному.</p>
+  <a href="calculator.html" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:#134B42;color:#F8D9A0;border-radius:16px;padding:18px 32px;font-weight:700;font-size:17px;text-decoration:none;box-shadow:0 14px 34px rgba(19,75,66,.25);transition:.2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">
     Открыть калькулятор →
   </a>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;max-width:780px;margin-left:auto;margin-right:auto">
-    <div style="border:1px solid #e0c8a0;border-radius:20px;background:#fff;padding:22px">
-      <div style="font-size:28px;font-weight:700;color:#ea580c;margin-bottom:6px">Пессим.</div>
-      <div style="color:#666;font-size:14px">Проверяем запас ликвидности</div>
+    <div style="border:1px solid rgba(200,146,42,.35);border-radius:20px;background:#134B42;padding:22px">
+      <div style="font-size:28px;font-weight:700;color:#F8D9A0;margin-bottom:6px">Пессим.</div>
+      <div style="color:rgba(248,217,160,.72);font-size:14px">Проверяем запас ликвидности</div>
     </div>
-    <div style="border:1px solid #c7d2fe;border-radius:20px;background:#eef2ff;padding:22px">
-      <div style="font-size:28px;font-weight:700;color:#4f46e5;margin-bottom:6px">Базовый</div>
-      <div style="color:#666;font-size:14px">Оцениваем возврат капитала</div>
+    <div style="border:1px solid rgba(200,146,42,.5);border-radius:20px;background:#EEA83B;padding:22px">
+      <div style="font-size:28px;font-weight:700;color:#1c2419;margin-bottom:6px">Базовый</div>
+      <div style="color:rgba(28,36,25,.72);font-size:14px">Оцениваем возврат капитала</div>
     </div>
-    <div style="border:1px solid #a7f3d0;border-radius:20px;background:#ecfdf5;padding:22px">
-      <div style="font-size:28px;font-weight:700;color:#059669;margin-bottom:6px">Оптим.</div>
-      <div style="color:#666;font-size:14px">Считаем сценарий выхода</div>
+    <div style="border:1px solid rgba(200,146,42,.35);border-radius:20px;background:#134B42;padding:22px">
+      <div style="font-size:28px;font-weight:700;color:#F8D9A0;margin-bottom:6px">Оптим.</div>
+      <div style="color:rgba(248,217,160,.72);font-size:14px">Считаем сценарий выхода</div>
     </div>
   </div>
 </div>
