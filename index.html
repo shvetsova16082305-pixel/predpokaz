@@ -3,7 +3,21 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8"/>
-<script>history.scrollRestoration='manual';window.addEventListener('load',function(){window.scrollTo(0,0);});</script>
+<script>
+history.scrollRestoration='manual';
+// Блокируем scrollIntoView на первые 3 секунды
+var _siv=Element.prototype.scrollIntoView;
+var _sivBlocked=true;
+setTimeout(function(){_sivBlocked=false;},3000);
+Element.prototype.scrollIntoView=function(){if(_sivBlocked)return;_siv.apply(this,arguments);};
+// Скроллим наверх при любом событии загрузки
+function _top(){window.scrollTo(0,0);}
+document.addEventListener('DOMContentLoaded',_top);
+window.addEventListener('load',_top);
+setTimeout(_top,500);
+setTimeout(_top,1000);
+setTimeout(_top,2000);
+</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Инвестиции в курортную недвижимость</title>
 <style>
