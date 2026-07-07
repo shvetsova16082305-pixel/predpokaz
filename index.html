@@ -7581,6 +7581,10 @@ section>.wrap{position:relative}
 @media(max-width:700px){.utpAccInner{padding:4px 14px 16px 14px}.utpSeasonRow{flex-direction:column}}
 
 /* Split two-column layout for Sochi/Polyana */
+.utpMapBlock{margin:0 0 18px;border-radius:18px;overflow:hidden;border:1px solid rgba(42,65,73,.18);background:#e8eef2}
+.utpMapLabel{font:600 11px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:rgba(42,65,73,.55);padding:10px 14px 0}
+.utpYmapEl{width:100%;height:420px}
+@media(max-width:760px){.utpYmapEl{height:300px}}
 .utpSplitWrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:4px}
 .utpSplitCol{min-width:0}
 .utpSplitHd{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#EEA83B;opacity:.85;padding:6px 4px 10px;border-bottom:1px solid rgba(238,168,59,.22);margin-bottom:10px}
@@ -7722,15 +7726,16 @@ section>.wrap{position:relative}
       return '<div class="utpAccList">'+items+'</div>';
     }
     var hero='<div class="utpHero"><img src="'+(HERO[r]||'')+'" alt="'+escapeHtml(TITLE[r]||r)+'"><div class="utpHeroBody"><h2>'+escapeHtml(TITLE[r]||r)+'</h2></div></div>';
+    var mapBlock='<div class="utpMapBlock"><div class="utpMapLabel">карта объектов региона</div><div id="ymap-passport-'+r+'" class="utpYmapEl" data-region="'+r+'"></div></div>';
     if(r==='sochi' && DATA.polyana){
       var dp=DATA.polyana; var op=OBJECTS.polyana||[];
-      return hero
+      return hero+mapBlock
         +'<div class="utpSplitWrap">'
           +'<div class="utpSplitCol"><div class="utpSplitHd">Сочи · Адлер · Центр</div>'+buildList(d,objects,true)+'</div>'
           +'<div class="utpSplitCol"><div class="utpSplitHd">Красная Поляна</div>'+buildList(dp,op,true)+'</div>'
         +'</div>';
     }
-    return hero+buildList(d,objects,true);
+    return hero+mapBlock+buildList(d,objects,true);
   }
   window.__utpBuildClean=buildClean;
   window.__utpApply=applyClean;
@@ -7751,6 +7756,7 @@ section>.wrap{position:relative}
     scope.querySelectorAll('.utpAccHead').forEach(function(h){
       h.addEventListener('click',function(){h.closest('.utpAcc').classList.toggle('open');});
     });
+    setTimeout(function(){if(window.initPassportMap) initPassportMap(r);},200);
   }
 
   function hookTabs(){
