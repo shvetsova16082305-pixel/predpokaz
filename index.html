@@ -1830,9 +1830,9 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
   <!-- Георгиевская долина -->
   <button class="regMapPin" style="left:41.5%;top:52%;width:7%" onclick="goRegion('georgievskaya')"><span class="regMapTip">Георгиевская долина</span></button>
   <!-- Сочи -->
-  <button class="regMapPin" style="left:44.5%;top:69%;width:7%" onclick="goRegion('sochi')"><span class="regMapTip">Сочи</span></button>
+  <button class="regMapPin" style="left:44.5%;top:75%;width:7%" onclick="goRegion('sochi')"><span class="regMapTip">Сочи</span></button>
   <!-- Красная Поляна -->
-  <button class="regMapPin" style="left:52.5%;top:65%;width:7%" onclick="goRegion('sochi')"><span class="regMapTip">Красная Поляна</span></button>
+  <button class="regMapPin" style="left:52.5%;top:70%;width:7%" onclick="goRegion('sochi')"><span class="regMapTip">Красная Поляна</span></button>
   <!-- Шерегеш -->
   <button class="regMapPin" style="left:69%;top:24%;width:7%" onclick="goRegion('sheregesh')"><span class="regMapTip">Шерегеш</span></button>
   <!-- Алтай -->
@@ -1840,12 +1840,12 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
 </div>
 <script>
 function goRegion(key){
-  var sec=document.getElementById('regions');
+  var sec=document.getElementById('region-intelligence');
   if(sec) sec.scrollIntoView({behavior:'smooth',block:'start'});
   setTimeout(function(){
-    var tab=document.querySelector('.riTab[data-ri="'+key+'"]');
+    var tab=document.querySelector('.intelligenceTab[data-int-region="'+key+'"]');
     if(tab) tab.click();
-  }, 600);
+  }, 500);
 }
 </script>
 </div>
