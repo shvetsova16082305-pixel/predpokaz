@@ -1919,34 +1919,6 @@ function goRegion(key){
 </ul>
 </div>
 </div>
-<div class="panel sialiaCalc" id="sialia-calculator" style="margin-top:16px">
-<h3>Калькулятор доходности</h3>
-<p>Упрощённый расчёт по логике презентации: валовая выручка = ADR × загрузка × 365 дней; доход инвестора = 50% от валовой выручки.</p>
-<div class="calcBox">
-<div class="rizSimpleInputs">
-<div class="calcRow">
-<label>Сумма инвестиций</label>
-<input id="sialiaInvestment" oninput="calcSialia()" step="100000" type="number" value="31008775"/>
-</div>
-<div class="calcRow">
-<label>ADR, ₽/сутки</label>
-<input id="sialiaAdr" oninput="calcSialia()" step="1000" type="number" value="28000"/>
-</div>
-<div class="calcRow">
-<label>Загрузка</label>
-<input id="sialiaOcc" max="80" min="30" oninput="calcSialia()" type="range" value="40"/>
-<span id="sialiaOccV">40%</span>
-</div>
-</div>
-<div class="calcOut rizSimpleOut">
-<div class="fact"><b id="sialiaGross">—</b><span>валовая выручка</span></div>
-<div class="fact"><b id="sialiaOwnerIncome">—</b><span>доход инвестора</span></div>
-<div class="fact"><b id="sialiaYield">—</b><span>годовая доходность</span></div>
-<div class="fact"><b id="sialiaFiveYears">—</b><span>доход за 5 лет</span></div>
-</div>
-</div>
-<figure class="sialiaCalcImg"><img alt="Расчёт доходности Сиалия" src="https://rizalta-invest.vercel.app/images/img_8.png"/></figure>
-</div>
 <div class="panel sialiaGallery" style="margin-top:16px">
 <h3>Фотографии и рендеры</h3>
 <div class="sialiaRenders sialiaVisualGrid">
@@ -2142,46 +2114,6 @@ function goRegion(key){
 </div>
 <div class="detail" id="object-rizalta">
 <div class="detailTop"><div class="panel"><div class="eyebrow">Стратегия 2 · рост капитала</div><h2>Rizalta Resort Belokurikha</h2><p>Премиальный комплекс курортных отелей на Алтае. Позиционирование для клиента: «Купи себе отель» — гостиничный номер в комплектации для профессиональной сдачи через федерального оператора.</p><div class="grid3"><div class="fact"><b>2 млн ₽</b><span>пассивного дохода в год с номера</span></div><div class="fact"><b>6 лет</b><span>заявленная окупаемость</span></div><div class="fact"><b>60%</b><span>капитализация за стройку</span></div></div></div><div class="cover"><img src="https://rizalta-invest.vercel.app/images/img_23.jpg"><div class="coverText"><h3>Белокуриха · центр Большого Алтая</h3><p>Круглогодичный курорт, лечебный профиль, wellness и высокий уровень сервиса.</p></div></img></div></div>
-<div class="panel rizCalc" id="rizalta-calculator">
-<h3>Калькулятор Rizalta</h3>
-<p>Упрощённая модель для встречи: выбираем сценарий и показываем клиенту ключевой итог без перегруза цифрами.</p>
-<div class="calcBox">
-<div class="calcRow">
-<label>Сценарий расчёта</label>
-<select id="rizScenario" onchange="setRizScenario(this.value)">
-<option value="s1">39,8 м² · ставка 27 000 ₽/сутки</option>
-<option value="s2">45 м² · ставка 35 000 ₽/сутки</option>
-<option selected="" value="s3">61,8 м² · ставка 45 000 ₽/сутки</option>
-<option value="s4">61,8 м² · ставка 35 000 ₽/сутки</option>
-</select>
-</div>
-<div class="rizSimpleInputs">
-<div class="calcRow">
-<label>Загрузка отеля</label>
-<input id="rizOcc" max="80" min="0" oninput="calcRiz()" type="range" value="60"/>
-<span id="rizOccV">60%</span>
-</div>
-<div class="calcRow">
-<label>Рост стоимости</label>
-<input id="rizGrowth" max="20" min="0" oninput="calcRiz()" type="range" value="10"/>
-<span id="rizGrowthV">10%</span>
-</div>
-<div class="calcRow">
-<label>Стоимость/сутки</label>
-<input id="rizRate" oninput="calcRiz()" step="1000" type="number" value="45000"/>
-</div>
-</div>
-<div class="calcOut rizSimpleOut">
-<div class="fact"><b id="rizNetIncome">—</b><span>чистый доход за год</span></div>
-<div class="fact"><b id="rizGrowthRub">—</b><span>прирост стоимости</span></div>
-<div class="fact"><b id="rizProfit">—</b><span>общая прибыль</span></div>
-<div class="fact"><b id="rizRoi">—</b><span>ROI за год</span></div>
-</div>
-<div class="rizFormulaNote">
-      Формула: чистый доход = ставка/сутки × загрузка × 360 дней × доля после расходов; прибыль = чистый доход + прирост стоимости.
-    </div>
-</div>
-</div>
 <div class="grid2"><div class="panel"><h3>Почему туристы поедут в Rizalta</h3><div class="list"><div class="li">комфорт мирового уровня;</div><div class="li">лечебное и оздоровительное направление Белокурихи;</div><div class="li">качественные развлечения круглый год;</div><div class="li">место для работы: коворкинг, конференц-центр, digital-инфраструктура;</div><div class="li">Алтай как природный и экскурсионный магнит.</div></div></div><div class="panel"><h3>Локация и рынок</h3><div class="grid2"><div class="fact"><b>5 млн+</b><span>туристов ежегодно принимает Алтай</span></div><div class="fact"><b>87%</b><span>среднегодовая загрузка отелей и санаториев Белокурихи</span></div><div class="fact"><b>260</b><span>солнечных дней в году</span></div><div class="fact"><b>13 раз</b><span>Белокуриха — лучший город-курорт России</span></div></div></div></div>
 <div class="grid2" style="margin-top:16px"><div class="panel"><h3>Концепция корпусов</h3><table class="table"><tr><th>Корпус</th><th>Формат</th><th>Смысл</th></tr><tr><td>1</td><td>Family</td><td>365 номеров, семьи, детский SPA, ресторан, магазин</td></tr><tr><td>2</td><td>Business</td><td>244 номера, конференц-центр 450+, adults only 14+</td></tr><tr><td>3</td><td>Digital</td><td>293 номера, киберцентр, коворкинг, rooftop-зоны</td></tr><tr><td>4</td><td>Legend</td><td>345 номеров, wellness-зоны, конгресс-холл</td></tr><tr><td>5</td><td>Wellness</td><td>лечебные и оздоровительные процедуры</td></tr></table></div><div class="panel"><h3>Оператор и договор</h3><div class="list"><div class="li">ZONT Hotel Group — федеральный гостиничный оператор;</div><div class="li">договор аренды на 15 лет с пролонгацией;</div><div class="li">чистый доход инвестора: 50–56% от выручки номерного фонда;</div><div class="li">дополнительный доход до 5% от инфраструктуры комплекса;</div><div class="li">ежемесячные и ежеквартальные выплаты в установленном порядке.</div></div></div></div>
 <div class="grid2" style="margin-top:16px"><div class="panel"><h3>Рост капитализации</h3><img src="https://rizalta-invest.vercel.app/images/img_24.jpg" style="width:100%;border-radius:18px;border:1px solid var(--line);margin-top:8px"><p>Прогноз роста м²: 590 000 ₽ на старте → 950 000 ₽ к 2027.</p></img></div><div class="panel"><h3>Доходность 27,3 м²</h3><img src="https://rizalta-invest.vercel.app/images/img_25.jpg" style="width:100%;border-radius:18px;border:1px solid var(--line);margin-top:8px"><p>Модель готового арендного бизнеса: загрузка растёт с 40% до 70%, оператор удерживает 50% расходов/выручки по модели.</p></img></div></div>
@@ -2192,7 +2124,7 @@ function goRegion(key){
 <div class="detailTop"><div class="panel"><div class="eyebrow">Стратегия 3 · капитализация + доход</div><h2>Алтын Шор: эволюция Шерегеша</h2><p>Первый отель 4* в секторе F, у подножия горы, с прямым выходом к зоне катания. Идея для клиента: вход в новый курортный центр до полной реализации инфраструктурного цикла.</p><div class="grid3"><div class="fact"><b>от 10,75 млн</b><span>апартамент 26,51 м² с ремонтом</span></div><div class="fact"><b>13%+</b><span>доходность от сдачи</span></div><div class="fact"><b>ski-in/out</b><span>первая линия склона</span></div></div></div><div class="cover"><img src="https://rizalta-invest.vercel.app/images/img_30.jpg"><div class="coverText"><h3>Сектор F — новый курортный центр</h3><p>Формируется всесезонный кластер с гостиницами, сервисом, SPA и маршрутами.</p></div></img></div></div>
 <div class="grid2"><div class="panel"><h3>Шерегеш: спрос и инфраструктура</h3><div class="grid2"><div class="fact"><b>6 месяцев</b><span>самый длинный горнолыжный сезон в стране</span></div><div class="fact"><b>15%</b><span>доходность аренды, ориентир презентации</span></div><div class="fact"><b>+40%</b><span>рост турпотока до 2030</span></div><div class="fact"><b>180 млрд ₽</b><span>объём инвестиций до 2030</span></div></div></div><div class="panel"><h3>Инфраструктура курорта</h3><div class="grid2"><div class="fact"><b>62 км</b><span>трасс</span></div><div class="fact"><b>20+</b><span>склонов</span></div><div class="fact"><b>21</b><span>подъёмник</span></div><div class="fact"><b>130+</b><span>гостиниц и апарт-отелей</span></div></div></div></div>
 <div class="grid2" style="margin-top:16px"><div class="panel"><h3>Объект и управление</h3><div class="list"><div class="li">курортный комплекс с профессиональным гостиничным управлением;</div><div class="li">ресепшен в каждом корпусе 24/7;</div><div class="li">портэр и гостевой сервис;</div><div class="li">клининг, room-service, техническое обслуживание;</div><div class="li">сервис хранения и подготовки инвентаря;</div><div class="li">централизованная система сдачи исключает демпинг.</div></div></div><div class="panel"><h3>Ski-in / Ski-out</h3><img src="https://rizalta-invest.vercel.app/images/img_31.jpg" style="width:100%;border-radius:18px;border:1px solid var(--line);margin-top:8px"><p>Первая линия склона, прямой выход к зоне катания, нижняя станция, у подножия горы и в окружении леса.</p></img></div></div>
-<div class="grid2" style="margin-top:16px"><div class="panel"><h3>Форматы апартаментов</h3><table class="table"><tr><th>Формат</th><th>Цена</th><th>Ставка</th><th>Доходность</th></tr><tr><td>26,51 м² · до 2 гостей</td><td><b>от 10,75 млн ₽</b></td><td>16 000 ₽/сутки</td><td>от 13%</td></tr><tr><td>52,58 м²</td><td><b>от 21,56 млн ₽</b></td><td>32 000 ₽/сутки</td><td>от 12%</td></tr></table><img src="https://rizalta-invest.vercel.app/images/img_32.jpg" style="width:100%;border-radius:18px;border:1px solid var(--line);margin-top:14px"/></div><div class="panel"><h3>Калькулятор Алтын Шор</h3><p>Быстрая модель для клиента. Ставки и базовые цены взяты из презентационных параметров.</p><div class="calcBox"><div class="calcRow"><label>Формат</label><select id="altType" onchange="calcAlt()"><option value="small">26,51 м²</option><option value="big">52,58 м²</option></select></div><div class="calcRow"><label>Загрузка, %</label><input id="altOcc" max="90" min="35" oninput="calcAlt()" type="range" value="65"><span id="altOccV">65%</span></input></div><div class="calcRow"><label>Доля инвестора, %</label><input id="altShare" max="70" min="50" oninput="calcAlt()" type="range" value="60"><span id="altShareV">60%</span></input></div><div class="calcOut"><div class="fact"><b id="altYear">—</b><span>доход в год</span></div><div class="fact"><b id="altYield">—</b><span>доходность</span></div><div class="fact"><b id="altPayback">—</b><span>окупаемость</span></div></div></div></div></div>
+<div class="grid2" style="margin-top:16px"><div class="panel"><h3>Форматы апартаментов</h3><table class="table"><tr><th>Формат</th><th>Цена</th><th>Ставка</th><th>Доходность</th></tr><tr><td>26,51 м² · до 2 гостей</td><td><b>от 10,75 млн ₽</b></td><td>16 000 ₽/сутки</td><td>от 13%</td></tr><tr><td>52,58 м²</td><td><b>от 21,56 млн ₽</b></td><td>32 000 ₽/сутки</td><td>от 12%</td></tr></table><img src="https://rizalta-invest.vercel.app/images/img_32.jpg" style="width:100%;border-radius:18px;border:1px solid var(--line);margin-top:14px"/></div></div>
 <div class="grid2" style="margin-top:16px"><div class="panel"><h3>Драйверы Шерегеша</h3><img src="https://rizalta-invest.vercel.app/images/img_33.jpg" style="width:100%;border-radius:18px;border:1px solid var(--line);margin-top:8px"><p>Транспортный цикл: действующий доступ → новый аэропорт рядом с курортом → рост доступности → загрузка → расширение сервиса.</p></img></div></div>
 </div></div></section>
 <div class="detail" id="object-moynako">
@@ -2712,65 +2644,6 @@ function goRegion(key){
     </div>
   </div>
 
-  <div class="panel bnCalcSection">
-    <h3>Калькуляторы для брокера: ДКП и ДДУ</h3>
-    <p>Два отдельных сценария расчёта для показа клиенту. Можно менять параметры прямо на встрече и объяснять, из чего складываются доход или расходы.</p>
-
-    <div class="bnCalcTabs">
-      <button class="bnCalcTab active" id="bnTabDkp" type="button" onclick="showBnCalc('dkp')">Калькулятор ДКП</button>
-      <button class="bnCalcTab" id="bnTabDdu" type="button" onclick="showBnCalc('ddu')">Калькулятор ДДУ</button>
-    </div>
-
-    <div class="bnCalcPane active" id="bnCalcDkpPane">
-      <div class="bnCalcHint">Логика ДКП: валовая выручка = ADR × загрузка × 365 × число помещений. Доход конкретного собственника рассчитывается через долю площади номера в общем пуле, затем вычитаются расходы на управление, содержание, коммунальные расходы и налог.</div>
-      <div class="bnCalcInputs">
-        <div class="calcRow"><label>Стоимость лота, ₽</label><input id="bnDkpPrice" type="number" step="100000" value="20000000" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>Площадь номера, м²</label><input id="bnDkpArea" type="number" step="0.1" value="24" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>ADR, ₽/сутки</label><input id="bnDkpAdr" type="number" step="500" value="33500" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>Загрузка, %</label><input id="bnDkpOcc" type="number" min="1" max="100" step="1" value="67" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>Помещений в аренде, шт.</label><input id="bnDkpRooms" type="number" step="1" value="102" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>Общая площадь пула, м²</label><input id="bnDkpTotalArea" type="number" step="0.01" value="4932.59" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>Управление, %</label><input id="bnDkpMgmt" type="number" step="0.1" value="35" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>Налог, %</label><input id="bnDkpTax" type="number" step="0.1" value="7" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>Содержание, ₽/м² в год</label><input id="bnDkpCommon" type="number" step="10" value="6600" oninput="calcBnDkp()"></div>
-        <div class="calcRow"><label>Коммунальные, ₽/м² в год</label><input id="bnDkpUtilities" type="number" step="10" value="2708.33" oninput="calcBnDkp()"></div>
-      </div>
-      <div class="bnCalcOutputs">
-        <div class="fact"><b id="bnDkpGross">—</b><span>валовый доход собственника / год</span></div>
-        <div class="fact"><b id="bnDkpPreTax">—</b><span>доход до налога / год</span></div>
-        <div class="fact"><b id="bnDkpNetYear">—</b><span>чистый доход / год</span></div>
-        <div class="fact"><b id="bnDkpNetMonth">—</b><span>чистый доход / месяц</span></div>
-        <div class="fact"><b id="bnDkpYield">—</b><span>годовая доходность</span></div>
-        <div class="fact"><b id="bnDkpManageCost">—</b><span>расходы на управление</span></div>
-        <div class="fact"><b id="bnDkpCommonCost">—</b><span>содержание + коммунальные</span></div>
-        <div class="fact"><b id="bnDkpTaxCost">—</b><span>налоговая нагрузка</span></div>
-      </div>
-    </div>
-
-    <div class="bnCalcPane" id="bnCalcDduPane">
-      <div class="bnCalcHint">Логика ДДУ: брокер показывает клиенту цену входа через площадь и стоимость м², а также будущую операционную нагрузку после ввода — управление, сервис, коммунальные расходы и IT. Значения предзаполнены по ТЭП и при необходимости редактируются.</div>
-      <div class="bnCalcInputs">
-        <div class="calcRow"><label>Тип номера</label><select id="bnDduType" onchange="syncBnDduPreset();calcBnDdu()"><option value="one">1 комн.</option><option value="two">2 комн.</option><option value="three">3 комн.</option></select></div>
-        <div class="calcRow"><label>Площадь, м²</label><input id="bnDduArea" type="number" step="0.01" value="29.41" oninput="calcBnDdu()"></div>
-        <div class="calcRow"><label>Цена за м², ₽</label><input id="bnDduPriceSqm" type="number" step="1" value="857013.47" oninput="calcBnDdu()"></div>
-        <div class="calcRow"><label>Резерв / fee, %</label><input id="bnDduFeePct" type="number" step="0.1" value="1" oninput="calcBnDdu()"></div>
-        <div class="calcRow"><label>УК, ₽/м² в год</label><input id="bnDduUkYear" type="number" step="10" value="4200" oninput="calcBnDdu()"></div>
-        <div class="calcRow"><label>Сервис, ₽/м² в год</label><input id="bnDduServiceYear" type="number" step="10" value="2400" oninput="calcBnDdu()"></div>
-        <div class="calcRow"><label>Коммунальные, ₽/год</label><input id="bnDduUtilYear" type="number" step="1000" value="84000" oninput="calcBnDdu()"></div>
-        <div class="calcRow"><label>IT, ₽/год</label><input id="bnDduItYear" type="number" step="1000" value="18000" oninput="calcBnDdu()"></div>
-      </div>
-      <div class="bnCalcOutputs">
-        <div class="fact"><b id="bnDduBaseTotal">—</b><span>базовая стоимость лота</span></div>
-        <div class="fact"><b id="bnDduFeeTotal">—</b><span>резерв / fee</span></div>
-        <div class="fact"><b id="bnDduFinalPrice">—</b><span>стоимость лота с fee</span></div>
-        <div class="fact"><b id="bnDduPriceSqmFinal">—</b><span>итоговая цена за м²</span></div>
-        <div class="fact"><b id="bnDduOpYear">—</b><span>эксплуатационные расходы / год</span></div>
-        <div class="fact"><b id="bnDduOpMonth">—</b><span>эксплуатационные расходы / месяц</span></div>
-        <div class="fact"><b id="bnDduUkTotal">—</b><span>услуги УК / год</span></div>
-        <div class="fact"><b id="bnDduServiceTotal">—</b><span>сервисный пакет / год</span></div>
-      </div>
-    </div>
-  </div>
 </div>
 
 
