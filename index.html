@@ -1795,7 +1795,57 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
 
 <section id="pre" style="padding:0 32px 48px">
 <div style="max-width:1160px;margin:0 auto">
-<img alt="Карта регионов инвестирования: Сочи, Крым, Анапа, Туапсе, Алтай, Шерегеш" src="https://rizalta-invest.vercel.app/images/img_map_new.png" style="width:100%;border-radius:24px;display:block"/>
+<style>
+.regMapWrap{position:relative;border-radius:24px;overflow:hidden;display:block}
+.regMapWrap img{width:100%;display:block}
+.regMapBtn{
+  position:absolute;border-radius:50%;
+  background:transparent;border:2px solid transparent;
+  cursor:pointer;transform:translate(-50%,-50%);
+  transition:border-color .2s,box-shadow .2s;
+  padding:0;outline:none
+}
+.regMapBtn:hover{
+  border-color:rgba(210,223,231,.9);
+  box-shadow:0 0 0 4px rgba(210,223,231,.25),0 0 24px rgba(210,223,231,.4)
+}
+.regMapBtn:active{transform:translate(-50%,-50%) scale(.96)}
+.regMapBtn .regMapTip{
+  position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#2A4149;color:#D2DFE7;
+  font:600 11px/1 Inter,sans-serif;white-space:nowrap;
+  padding:5px 10px;border-radius:20px;
+  opacity:0;transition:opacity .15s;pointer-events:none
+}
+.regMapBtn:hover .regMapTip{opacity:1}
+</style>
+<div class="regMapWrap">
+  <img alt="Карта регионов инвестирования: Сочи, Крым, Анапа, Туапсе, Алтай, Шерегеш" src="https://rizalta-invest.vercel.app/images/img_map_new.png"/>
+  <!-- Крым -->
+  <button class="regMapBtn" style="left:14.5%;top:28%;width:9%" onclick="goRegion('crimea')"><span class="regMapTip">Крым</span></button>
+  <!-- Анапа -->
+  <button class="regMapBtn" style="left:28%;top:43%;width:8%" onclick="goRegion('anapa')"><span class="regMapTip">Анапа</span></button>
+  <!-- Георгиевская долина -->
+  <button class="regMapBtn" style="left:38.5%;top:55%;width:8%" onclick="goRegion('georgievskaya')"><span class="regMapTip">Георгиевская долина</span></button>
+  <!-- Сочи -->
+  <button class="regMapBtn" style="left:44%;top:70%;width:8%" onclick="goRegion('sochi')"><span class="regMapTip">Сочи</span></button>
+  <!-- Красная Поляна -->
+  <button class="regMapBtn" style="left:52%;top:64%;width:8%" onclick="goRegion('sochi')"><span class="regMapTip">Красная Поляна → Сочи</span></button>
+  <!-- Шерегеш -->
+  <button class="regMapBtn" style="left:68%;top:30%;width:9%" onclick="goRegion('sheregesh')"><span class="regMapTip">Шерегеш</span></button>
+  <!-- Алтай -->
+  <button class="regMapBtn" style="left:83%;top:66%;width:9%" onclick="goRegion('altai')"><span class="regMapTip">Алтай</span></button>
+</div>
+<script>
+function goRegion(key){
+  var sec=document.getElementById('regions');
+  if(sec) sec.scrollIntoView({behavior:'smooth',block:'start'});
+  setTimeout(function(){
+    var tab=document.querySelector('.riTab[data-ri="'+key+'"]');
+    if(tab) tab.click();
+  }, 600);
+}
+</script>
 </div>
 </section>
 
