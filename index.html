@@ -1673,7 +1673,12 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
           <a class="riAnalyticsLink" href="#region-intelligence">Паспорт региона ↓</a>
         </div>
         <div class="riMapPreview" id="riMapPreview">
-          <img id="riMapImage" alt="Карта объектов региона" src="https://rizalta-invest.vercel.app/passport_visuals/sochi.png" />
+          <div id="ymap-ri-sochi"           class="riYmapSlot"></div>
+          <div id="ymap-ri-crimea"          class="riYmapSlot" style="display:none"></div>
+          <div id="ymap-ri-anapa"           class="riYmapSlot" style="display:none"></div>
+          <div id="ymap-ri-georgievskaya"   class="riYmapSlot" style="display:none"></div>
+          <div id="ymap-ri-altai"           class="riYmapSlot" style="display:none"></div>
+          <div id="ymap-ri-sheregesh"       class="riYmapSlot" style="display:none"></div>
         </div>
       </article>
 
@@ -3851,6 +3856,46 @@ radial-gradient(circle at 15% 20%,rgba(244,201,93,.18),transparent 18%),radial-g
   }
   window.initPassportMap=initPassportMap;
 
+  var RI_REGIONS=['sochi','crimea','anapa','georgievskaya','altai','sheregesh'];
+  function initRiMap(region){
+    RI_REGIONS.forEach(function(r){
+      var el=document.getElementById('ymap-ri-'+r);
+      if(el) el.style.display=(r===region?'block':'none');
+    });
+    var cfg=PMAP_CFG[region];if(!cfg)return;
+    var cid='ymap-ri-'+region;
+    var container=document.getElementById(cid);if(!container)return;
+    if(container._ymapInited)return;
+    function doInit(){
+      if(container._ymapInited)return;
+      container._ymapInited=true;
+      var map=new ymaps.Map(cid,{center:cfg.center,zoom:cfg.zoom,type:'yandex#map'},{suppressMapOpenBlock:true,yandexMapDisablePoiInteractivity:true});
+      map.controls.remove('searchControl');
+      map.controls.remove('routeButtonControl');
+      cfg.objects.forEach(function(obj){
+        var pm=new ymaps.Placemark(obj.coords,{
+          balloonContent:'<div style="font:600 13px/1.4 Inter,sans-serif;color:#2A4149;padding:4px 0"><b>'+obj.name+'</b><br><a href="#object-'+obj.id+'" onclick="closeAllBalloons();openDetail(\'object-'+obj.id+'\');return false;" style="color:#2B4B36;font-size:12px;font-weight:400">Перейти к объекту →</a></div>',
+          iconCaption:obj.name
+        },{
+          preset:'islands#darkBlueDotIconWithCaption',
+          iconColor:'#2A4149',
+          iconCaptionMaxWidth:'160'
+        });
+        pm.events.add('click',function(){
+          if(typeof openDetail==='function')openDetail('object-'+obj.id);
+        });
+        map.geoObjects.add(pm);
+      });
+      container._ymapInstance=map;
+      window._riMaps=window._riMaps||{};
+      window._riMaps[region]=map;
+    }
+    if(typeof ymaps!=='undefined'&&ymaps.ready){ymaps.ready(doInit);}
+    else{var t=setInterval(function(){if(typeof ymaps!=='undefined'&&ymaps.ready){clearInterval(t);ymaps.ready(doInit);}},200);}
+  }
+  window.initRiMap=initRiMap;
+  window.closeAllBalloons=function(){if(window._riMaps)Object.values(window._riMaps).forEach(function(m){try{m.balloon.close();}catch(e){}});}
+
   window.openMapFullscreen=function(region){
     var cfg=PMAP_CFG[region];
     var src=YMAPS[region]||(cfg?'https://yandex.ru/map-widget/v1/?ll='+cfg.center[1]+'%2C'+cfg.center[0]+'&z='+cfg.zoom+'&l=sat%2Cskl&lang=ru_RU':'');
@@ -3925,7 +3970,8 @@ radial-gradient(circle at 15% 20%,rgba(244,201,93,.18),transparent 18%),radial-g
 .riOverview h3{font-size:42px;line-height:1.02;margin:0 0 14px}.riLead{font-size:23px;line-height:1.35;font-weight:700;color:#fff8ec;margin:0 0 12px}.riDesc{color:var(--muted);line-height:1.72;margin:0 0 16px}
 .riKpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.riKpi{padding:16px 14px;border-radius:18px;border:1px solid rgba(255,226,146,.18);background:linear-gradient(180deg,rgba(244,201,93,.11),rgba(96,118,73,.10))}.riKpiValue{display:block;font-size:28px;font-weight:900;color:#f4cd6a;line-height:1.05;margin-bottom:6px}.riKpiLabel{display:block;font-size:13px;line-height:1.42;color:#d8dacd}
 .riMapHead{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:14px}.riMap h3,.riChart h3,.riDrivers h3,.riObjectsCard h3{font-size:30px;margin:0 0 6px}.riAnalyticsLink{white-space:nowrap;padding:12px 16px;border-radius:999px;border:1px solid rgba(255,226,146,.24);background:linear-gradient(135deg,rgba(244,201,93,.18),rgba(92,114,70,.16));font-weight:800;color:#fff7de}
-.riMapPreview{position:relative;height:1440px;border-radius:24px;overflow:hidden;border:1px solid rgba(255,226,146,.24);background:#071109;box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
+.riMapPreview{position:relative;height:460px;border-radius:20px;overflow:hidden;border:1px solid rgba(42,65,73,.18);background:#e8eef2}
+.riYmapSlot{width:100%;height:100%;position:absolute;top:0;left:0}
 .riMapPreview img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.03) contrast(1.04) sharpness(1.05)}
 .riChart{display:flex;flex-direction:column}.riBars{display:flex;align-items:flex-end;gap:18px;min-height:220px;padding:22px 8px 6px}.riBarItem{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px}.riBarValue{font-weight:800;font-size:16px;color:#fff6dd}.riBarTrack{width:100%;max-width:54px;height:148px;border-radius:18px 18px 10px 10px;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));display:flex;align-items:flex-end;overflow:hidden;border:1px solid rgba(255,226,146,.12)}.riBarFill{width:100%;border-radius:16px 16px 8px 8px;background:linear-gradient(180deg,#f8e7a5 0%,#f4cd6a 34%,#b3882f 100%);box-shadow:0 0 22px rgba(244,201,93,.14)}.riBarYear{font-size:13px;color:#c8cabb}.riChartFoot{margin-top:8px;color:#f0cf79;font-weight:700}
 .riBullets{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:12px}.riBullets li{position:relative;padding-left:20px;color:#e2e4d7;line-height:1.6}.riBullets li:before{content:'✦';position:absolute;left:0;top:0;color:#f2c860}
@@ -4088,8 +4134,8 @@ radial-gradient(circle at 15% 20%,rgba(244,201,93,.18),transparent 18%),radial-g
     const lead = document.getElementById('riLead'); if(lead) lead.textContent = d.lead;
     const desc = document.getElementById('riDesc'); if(desc) desc.textContent = d.desc;
     const mapTitle = document.getElementById('riMapTitle'); if(mapTitle) mapTitle.textContent = d.title + ' — карта объектов';
-    const mapImage = document.getElementById('riMapImage'); if(mapImage) mapImage.src = d.map;
     const mapPreview = document.getElementById('riMapPreview'); if(mapPreview) mapPreview.setAttribute('data-ri', region);
+    initRiMap(region);
     const kpis = document.getElementById('riKpis'); if(kpis) kpis.innerHTML = d.kpis.map(function(k){ return '<div class="riKpi"><span class="riKpiValue">'+k[0]+'</span><span class="riKpiLabel">'+k[1]+'</span></div>'; }).join('');
     const max = Math.max.apply(null, d.chart.values);
     const bars = document.getElementById('riBars'); if(bars) bars.innerHTML = d.chart.values.map(function(v,i){ const h = Math.max(18, Math.round((v/max)*100)); return '<div class="riBarItem"><div class="riBarValue">'+v+'</div><div class="riBarTrack"><div class="riBarFill" style="height:'+h+'%"></div></div><div class="riBarYear">'+d.chart.years[i]+'</div></div>'; }).join('');
