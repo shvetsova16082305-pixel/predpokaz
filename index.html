@@ -1798,43 +1798,45 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
 <style>
 .regMapWrap{position:relative;border-radius:24px;overflow:hidden;display:block}
 .regMapWrap img{width:100%;display:block}
-.regMapBtn{
+.regMapPin{
   position:absolute;border-radius:50%;
-  background:transparent;border:2px solid transparent;
+  background:rgba(210,223,231,0);border:none;
   cursor:pointer;transform:translate(-50%,-50%);
-  transition:border-color .2s,box-shadow .2s;
-  padding:0;outline:none
+  transition:background .2s,box-shadow .2s;
+  padding:0;outline:none;
+  aspect-ratio:1/1
 }
-.regMapBtn:hover{
-  border-color:rgba(210,223,231,.9);
-  box-shadow:0 0 0 4px rgba(210,223,231,.25),0 0 24px rgba(210,223,231,.4)
+.regMapPin:hover{
+  background:rgba(210,223,231,.18);
+  box-shadow:0 0 0 3px rgba(210,223,231,.7),0 0 28px rgba(210,223,231,.45)
 }
-.regMapBtn:active{transform:translate(-50%,-50%) scale(.96)}
-.regMapBtn .regMapTip{
-  position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+.regMapPin:active{transform:translate(-50%,-50%) scale(.94);transition:transform .1s}
+.regMapPin .regMapTip{
+  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);
   background:#2A4149;color:#D2DFE7;
-  font:600 11px/1 Inter,sans-serif;white-space:nowrap;
-  padding:5px 10px;border-radius:20px;
-  opacity:0;transition:opacity .15s;pointer-events:none
+  font:600 11px/1.2 Inter,sans-serif;white-space:nowrap;
+  padding:5px 12px;border-radius:20px;
+  opacity:0;transition:opacity .15s;pointer-events:none;
+  box-shadow:0 4px 16px rgba(26,39,32,.3)
 }
-.regMapBtn:hover .regMapTip{opacity:1}
+.regMapPin:hover .regMapTip{opacity:1}
 </style>
 <div class="regMapWrap">
   <img alt="Карта регионов инвестирования: Сочи, Крым, Анапа, Туапсе, Алтай, Шерегеш" src="https://rizalta-invest.vercel.app/images/img_map_new.png"/>
   <!-- Крым -->
-  <button class="regMapBtn" style="left:14.5%;top:28%;width:9%" onclick="goRegion('crimea')"><span class="regMapTip">Крым</span></button>
+  <button class="regMapPin" style="left:13.5%;top:27%;width:10%" onclick="goRegion('crimea')"><span class="regMapTip">Крым</span></button>
   <!-- Анапа -->
-  <button class="regMapBtn" style="left:28%;top:43%;width:8%" onclick="goRegion('anapa')"><span class="regMapTip">Анапа</span></button>
+  <button class="regMapPin" style="left:28%;top:41%;width:9%" onclick="goRegion('anapa')"><span class="regMapTip">Анапа</span></button>
   <!-- Георгиевская долина -->
-  <button class="regMapBtn" style="left:38.5%;top:55%;width:8%" onclick="goRegion('georgievskaya')"><span class="regMapTip">Георгиевская долина</span></button>
+  <button class="regMapPin" style="left:38%;top:53%;width:9%" onclick="goRegion('georgievskaya')"><span class="regMapTip">Георгиевская долина</span></button>
   <!-- Сочи -->
-  <button class="regMapBtn" style="left:44%;top:70%;width:8%" onclick="goRegion('sochi')"><span class="regMapTip">Сочи</span></button>
+  <button class="regMapPin" style="left:43%;top:67%;width:9%" onclick="goRegion('sochi')"><span class="regMapTip">Сочи</span></button>
   <!-- Красная Поляна -->
-  <button class="regMapBtn" style="left:52%;top:64%;width:8%" onclick="goRegion('sochi')"><span class="regMapTip">Красная Поляна → Сочи</span></button>
+  <button class="regMapPin" style="left:51%;top:62%;width:9%" onclick="goRegion('sochi')"><span class="regMapTip">Красная Поляна</span></button>
   <!-- Шерегеш -->
-  <button class="regMapBtn" style="left:68%;top:30%;width:9%" onclick="goRegion('sheregesh')"><span class="regMapTip">Шерегеш</span></button>
+  <button class="regMapPin" style="left:67.5%;top:28%;width:10%" onclick="goRegion('sheregesh')"><span class="regMapTip">Шерегеш</span></button>
   <!-- Алтай -->
-  <button class="regMapBtn" style="left:83%;top:66%;width:9%" onclick="goRegion('altai')"><span class="regMapTip">Алтай</span></button>
+  <button class="regMapPin" style="left:83%;top:63%;width:10%" onclick="goRegion('altai')"><span class="regMapTip">Алтай</span></button>
 </div>
 <script>
 function goRegion(key){
