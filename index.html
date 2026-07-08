@@ -3558,16 +3558,22 @@ document.addEventListener('DOMContentLoaded', function(){
 (function(){
  const data={
   'passive-income':{def:'sochi',regions:{
-    sochi:[['10–20 млн ₽','Готовые/почти готовые объекты под поток',[['object-mone','Моне']]],['20–30 млн ₽','Пассивный доход в премиальном гостиничном формате',[['object-belyenochi','Белые Ночи']]],['30+ млн ₽','Премиальные курортные объекты',[['object-polyanapik','Поляна Пик'],['object-polyana540','Поляна 540'],['object-polyana960','Поляна 960'],['object-evopart','Evopart'],['object-lokvera','ЛОК «Вера»']]]],
-    crimea:[['10–20 млн ₽','Курортные апарт- и гостиничные объекты',[['object-atlas','Атлас'],['object-moynako','Мойнако'],['object-darsan','Дарсан']]]],
-    anapa:[['20–30 млн ₽','Премиальный гостиничный продукт на первой линии',[['object-nikolay1','Николай 1']]]],
-    georgievskaya:[['10–20 млн ₽','Пассивный доход на черноморском побережье',[['object-riverta','Riverta']]]]
+    sochi:[['Сочи / Красная Поляна','Готовые объекты под арендный поток',[['object-mone','Моне'],['object-polyanapik','Поляна Пик'],['object-polyana540','Поляна 540'],['object-polyana960','Поляна 960'],['object-evopart','Evopart']]]],
+    crimea:[['Крым','Курортные объекты под управление',[['object-atlas','Атлас'],['object-darsan','Дарсан']]]],
+    anapa:[['Анапа','Премиальный гостиничный продукт',[['object-nikolay1','Николай 1']]]]
   }},
-  'capital-growth':{def:'altai',regions:{altai:[['10–20 млн ₽','Ранний вход в развивающийся курортный кластер',[['object-rizalta','Rizalta']]]]}},
+  'capital-growth':{def:'sochi',regions:{
+    sochi:[['Сочи','Объекты с ростом капитала',[['object-belyenochi','Белые Ночи'],['object-sialia','Сиалия'],['object-volna','Волна']]]],
+    crimea:[['Крым','Курортный объект с перспективой роста',[['object-moynako','Мойнако']]]],
+    altai:[['Алтай','Ранний вход в премиальный курортный кластер',[['object-rizalta','Rizalta']]]],
+    georgievskaya:[['Георгиевская долина','Черноморский объект с капитализацией',[['object-palazzo','Palazzo De Agoy']]]]
+  }},
   'capital-income':{def:'sochi',regions:{
-    sochi:[['20–30 млн ₽','Капитализация + будущий доход',[['object-sialia','Сиалия']]],['30+ млн ₽','Премиальная капитализация + доход',[['object-volna','Волна']]]],
-    georgievskaya:[['20–30 млн ₽','Курортный комплекс с доходной моделью',[['object-agoy','Alean Select Agoy']]],['30+ млн ₽','Премиальный проект на побережье',[['object-palazzo','Palazzo De Agoy']]]],
-    sheregesh:[['10–20 млн ₽','Горный курорт: рост + аренда',[['object-altyn','Алтын Шор']]]]
+    sochi:[['Сочи','Смешанная модель: доход + рост',[['object-belyenochi','Белые Ночи'],['object-sialia','Сиалия'],['object-lokvera','ЛОК «Вера»']]]],
+    crimea:[['Крым','Апарт-объект с доходной моделью',[['object-moynako','Мойнако']]]],
+    altai:[['Алтай','Готовый бизнес с оператором',[['object-rizalta','Rizalta']]]],
+    georgievskaya:[['Георгиевская долина','Черноморские объекты: аренда + рост',[['object-riverta','Riverta'],['object-palazzo','Palazzo De Agoy'],['object-agoy','Alean Select Agoy']]]],
+    sheregesh:[['Шерегеш','Горнолыжный курорт: сезонный доход + рост',[['object-altyn','Алтын Шор']]]]
   }}
  };
  const labels={sochi:'Сочи',crimea:'Крым',anapa:'Анапа',georgievskaya:'Георгиевская долина',altai:'Алтай',sheregesh:'Шерегеш'};
