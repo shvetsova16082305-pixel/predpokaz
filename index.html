@@ -1150,6 +1150,12 @@ body{background:var(--deepgreen)}
 /* Блок "не инвестируй" — аккордеон */
 .biCollapse{display:none;margin-top:0}
 .biCollapse.open{display:block}
+.biHead{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:20px;cursor:pointer;user-select:none}
+.biHead p{max-width:570px;line-height:1.6}
+.biGridWrap{display:grid;grid-template-rows:1fr;transition:grid-template-rows .32s ease,opacity .25s ease;opacity:1}
+.biGridWrap>div{overflow:hidden;min-height:0}
+.beforeInvestSection.collapsed .roadmapToggleChevron{transform:rotate(-90deg)}
+.beforeInvestSection.collapsed .biGridWrap{grid-template-rows:0fr;opacity:0}
 .biToggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:#2A4149;border:1px solid rgba(210,223,231,.40);border-radius:18px;padding:16px 22px;color:#D2DFE7;font-size:16px;font-weight:700;cursor:pointer;margin-top:18px;gap:12px;text-align:left;font-family:inherit}
 .biToggle:hover{background:#1a2720}
 .biToggleArrow{font-size:20px;transition:transform .25s;flex-shrink:0}
@@ -1725,14 +1731,12 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
     </div>
   </div>
 </section>
-<section class="" id="before-invest"><div class="wrap">
-<div class="eyebrow">прежде чем инвестировать</div>
-<h2 class="blockTitle">Не инвестируй пока не узнаешь <span>ЭТО</span></h2>
-<p class="blockSub">Прежде чем выбирать регион и объект — важно понимать саму специфику инвестирования в недвижимость.</p>
-<button class="biToggle" onclick="var o=this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');this.querySelector('.biToggleLabel').textContent=o?'Свернуть':'Раскрыть подробнее'">
-  <span class="biToggleLabel">Раскрыть подробнее</span><span class="biToggleArrow">▼</span>
-</button>
-<div class="biCollapse">
+<section class="beforeInvestSection collapsed" id="before-invest"><div class="wrap">
+<div class="biHead" onclick="this.closest('.beforeInvestSection').classList.toggle('collapsed')">
+  <div><div class="eyebrow">прежде чем инвестировать <span class="roadmapToggleChevron">⌄</span></div><h2 class="blockTitle">Не инвестируй пока не узнаешь <span>ЭТО</span></h2></div>
+  <p class="blockSub">Прежде чем выбирать регион и объект — важно понимать саму специфику инвестирования в недвижимость.</p>
+</div>
+<div class="roadmapGridWrap biGridWrap"><div>
 <div class="grid2">
 <div class="panel">
 <h3>С чем сталкивается инвестор сейчас</h3>
@@ -1763,10 +1767,6 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
 
 <div class="panel" style="margin-top:16px">
 <h3>Сравнение с альтернативными инструментами</h3>
-<button class="biToggle" style="margin-top:12px" onclick="var o=this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');this.querySelector('.biToggleLabel').textContent=o?'Свернуть':'Раскрыть подробнее'">
-  <span class="biToggleLabel">Раскрыть подробнее</span><span class="biToggleArrow">▼</span>
-</button>
-<div class="biCollapse">
 <div style="overflow-x:auto;margin-top:14px"><table class="table">
 <tr><th>Критерий</th><th>Недвижимость</th><th>Акции</th><th>Облигации</th><th>Золото</th><th>Крипто</th></tr>
 <tr><td>Регулярный денежный поток</td><td><b>Да: аренда</b></td><td>Ограниченно: дивиденды</td><td>Да: купон</td><td>Нет</td><td>Нет</td></tr>
@@ -1777,7 +1777,6 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
 <tr><td>Ликвидность</td><td>Средняя</td><td>Высокая</td><td>Высокая</td><td>Высокая</td><td>Высокая / нестабильная</td></tr>
 <tr><td>Безопасность</td><td><b>Высокая: оформлено на вас, зарегистрировано государством</b></td><td>Средняя: зависит от рынка и брокера</td><td>Средняя: зависит от того, кто выпустил</td><td>Высокая: держишь в руках, никуда не денется</td><td>Низкая: могут взломать или заморозить счёт</td></tr>
 </table></div>
-</div>
 </div>
 
 <div class="panel" style="margin-top:16px">
@@ -1800,7 +1799,7 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
 </div>
 </div>
 <p style="margin-top:16px;font-size:12px;color:#3a4434">Материал носит информационный характер и не является индивидуальной инвестиционной рекомендацией.</p>
-</div><!-- /biCollapse -->
+</div></div>
 </div></section>
 
 <section id="pre" style="padding:0 32px 48px">
