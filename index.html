@@ -1763,7 +1763,11 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
 
 <div class="panel" style="margin-top:16px">
 <h3>Сравнение с альтернативными инструментами</h3>
-<div style="overflow-x:auto"><table class="table">
+<button class="biToggle" style="margin-top:12px" onclick="var o=this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');this.querySelector('.biToggleLabel').textContent=o?'Свернуть':'Раскрыть подробнее'">
+  <span class="biToggleLabel">Раскрыть подробнее</span><span class="biToggleArrow">▼</span>
+</button>
+<div class="biCollapse">
+<div style="overflow-x:auto;margin-top:14px"><table class="table">
 <tr><th>Критерий</th><th>Недвижимость</th><th>Акции</th><th>Облигации</th><th>Золото</th><th>Крипто</th></tr>
 <tr><td>Регулярный денежный поток</td><td><b>Да: аренда</b></td><td>Ограниченно: дивиденды</td><td>Да: купон</td><td>Нет</td><td>Нет</td></tr>
 <tr><td>Потенциал роста стоимости</td><td><b>Да</b></td><td>Да</td><td>Ограниченный</td><td>Да</td><td>Высокий / нестабильный</td></tr>
@@ -1773,6 +1777,7 @@ h1 span,h2 span,.blockTitle span{color:#363636!important;text-shadow:none}
 <tr><td>Ликвидность</td><td>Средняя</td><td>Высокая</td><td>Высокая</td><td>Высокая</td><td>Высокая / нестабильная</td></tr>
 <tr><td>Безопасность</td><td><b>Высокая: оформлено на вас, зарегистрировано государством</b></td><td>Средняя: зависит от рынка и брокера</td><td>Средняя: зависит от того, кто выпустил</td><td>Высокая: держишь в руках, никуда не денется</td><td>Низкая: могут взломать или заморозить счёт</td></tr>
 </table></div>
+</div>
 </div>
 
 <div class="panel" style="margin-top:16px">
