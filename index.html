@@ -1148,8 +1148,8 @@ body{background:var(--deepgreen)}
 /* Красная Поляна — скрываем только таб, объекты остаются */
 [data-int-region="polyana"]{display:none!important}
 /* Блок "не инвестируй" — аккордеон */
-.biCollapse{max-height:0;overflow:hidden;transition:max-height .45s ease;margin-top:0}
-.biCollapse.open{max-height:9999px}
+.biCollapse{display:none;margin-top:0}
+.biCollapse.open{display:block}
 .biToggle{display:flex;justify-content:space-between;align-items:center;width:100%;background:#2A4149;border:1px solid rgba(210,223,231,.40);border-radius:18px;padding:16px 22px;color:#D2DFE7;font-size:16px;font-weight:700;cursor:pointer;margin-top:18px;gap:12px;text-align:left;font-family:inherit}
 .biToggle:hover{background:#1a2720}
 .biToggleArrow{font-size:20px;transition:transform .25s;flex-shrink:0}
