@@ -3557,7 +3557,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 <script>document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('a[href^="#object-"]').forEach(function(a){a.addEventListener('click',function(e){var id=(a.getAttribute('href')||'').slice(1);var el=document.getElementById(id);if(el&&el.classList.contains('detail')){e.preventDefault();openDetail(id);}});});});</script>
 <style>
-.regionStrategyTabs{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 14px}.regionChip{border:1px solid rgba(210,223,231,.38);background:#2A4149;color:#D2DFE7;padding:10px 13px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer;box-shadow:none;transition:background .18s,box-shadow .18s}.regionChip:hover{background:#1a2720;box-shadow:0 0 16px rgba(210,223,231,.22)}.regionChip.active{background:#D2DFE7;color:#2A4149;border-color:#D2DFE7;box-shadow:none}.budgetGrid{display:flex;gap:12px;align-items:stretch}.budgetCard{flex:1;min-width:0;border:1px solid rgba(210,223,231,.22);border-radius:18px;padding:16px;background:linear-gradient(145deg,rgba(42,65,73,.80),rgba(26,39,32,.90))}.budgetCard b{display:block;color:#D2DFE7;font-size:18px;margin-bottom:7px}.budgetCard p{min-height:42px;color:rgba(210,223,231,.82);line-height:1.45;margin:0 0 12px}.budgetCard .objectBtn{display:block;width:100%;margin:7px 0;text-align:left}.regionDrop .dropObjects{display:flex;flex-direction:column;gap:8px}.regionDrop .dropObjects .objectBtn{margin:0}.strategyHint{color:rgba(210,223,231,.80);line-height:1.55;margin:6px 0 12px}@media(max-width:900px){.budgetGrid{grid-template-columns:1fr}}
+.regionStrategyTabs{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 14px}.regionChip{border:1px solid rgba(210,223,231,.38);background:#2A4149;color:#D2DFE7;padding:10px 13px;border-radius:999px;font:inherit;font-weight:800;cursor:pointer;box-shadow:none;transition:background .18s,box-shadow .18s}.regionChip:hover{background:#1a2720;box-shadow:0 0 16px rgba(210,223,231,.22)}.regionChip.active{background:#D2DFE7;color:#2A4149;border-color:#D2DFE7;box-shadow:none}.budgetGrid{display:flex;gap:12px;align-items:stretch}.budgetCard{flex:1;min-width:0;border:1px solid rgba(210,223,231,.22);border-radius:18px;padding:16px;background:linear-gradient(145deg,rgba(42,65,73,.80),rgba(26,39,32,.90))}.budgetCard b{display:block;color:#D2DFE7;font-size:18px;margin-bottom:7px}.budgetCard p{min-height:42px;color:rgba(210,223,231,.82);line-height:1.45;margin:0 0 12px}.budgetCard .objectBtn{display:block;width:100%;margin:7px 0;text-align:left}.regionDrop .dropObjects{display:flex;flex-direction:column;gap:8px}.regionDrop .dropObjects .objectBtn{margin:0}.strategyHint{color:rgba(210,223,231,.80);line-height:1.55;margin:6px 0 12px}@media(max-width:560px){.budgetGrid{flex-wrap:wrap}.budgetCard{flex:1 1 130px}}
 </style>
 <script>
 (function(){
@@ -6062,6 +6062,7 @@ radial-gradient(circle at 15% 20%,rgba(244,201,93,.18),transparent 18%),radial-g
 }
 #compareBtn:hover{background:#1a2720;box-shadow:0 12px 40px rgba(26,39,32,.5)}
 #compareBtn svg{flex-shrink:0}
+@media(max-width:600px){#compareBtn{bottom:16px;right:16px;padding:11px 16px;font-size:12px;max-width:calc(100vw - 32px)}}
 
 #compareOverlay{
   position:fixed;inset:0;z-index:9001;
@@ -6118,7 +6119,7 @@ radial-gradient(circle at 15% 20%,rgba(244,201,93,.18),transparent 18%),radial-g
   color:rgba(54,54,54,.5);
 }
 
-#compareScroll{overflow:auto;flex:1;-webkit-overflow-scrolling:touch}
+#compareScroll{overflow:auto;flex:1;min-width:0;-webkit-overflow-scrolling:touch}
 
 #compareTable{
   border-collapse:collapse;width:100%;
@@ -7477,7 +7478,7 @@ section>.wrap{position:relative}
 .utpSplitCol:first-child{padding-left:0;border-right:1px solid rgba(238,168,59,.22)}
 .utpSplitCol:last-child{padding-right:0}
 .utpSplitHd{font-size:15px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#EEA83B;opacity:.85;padding:6px 4px 10px;border-bottom:1px solid rgba(238,168,59,.22);margin-bottom:10px}
-@media(max-width:860px){.utpSplitWrap{grid-template-columns:1fr}.utpSplitHd{margin-top:10px}}
+@media(max-width:860px){.utpSplitWrap{grid-template-columns:1fr}.utpSplitHd{margin-top:10px}.utpSplitCol{padding:0}.utpSplitCol:first-child{border-right:0;border-bottom:1px solid rgba(238,168,59,.22);padding-bottom:6px;margin-bottom:6px}}
 </style>
 <script id="utp-clean-passport-script">
 (function(){
